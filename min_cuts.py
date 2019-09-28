@@ -23,3 +23,5 @@ def count_probable_min_cuts(G):
     for u in range(len(G)):
         if len(G[u]) > 0:
             return len(G[u])
+
+    return 0
