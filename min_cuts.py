@@ -2,6 +2,7 @@ import random
 
 
 def union_vertices(G, v, u):
+    # unions 2 vertices, self loops are removed
     G[u] = [z for z in G[u] if z != v]
     G[v] = [z for z in G[v] if z != u]
     for x in G[v]:
@@ -12,6 +13,10 @@ def union_vertices(G, v, u):
 
 
 def count_probable_min_cuts(G):
+    # tries to count the min cuts.
+    # probablity to succeed is low.
+    # so it should be executed multiple times and the
+    # min value of all executions should be remembered
     vertices_remaining = [i for i in range(len(G))]
 
     while len(vertices_remaining) > 2:
