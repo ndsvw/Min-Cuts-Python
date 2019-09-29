@@ -76,6 +76,36 @@ class MinCutsTest(unittest.TestCase):
         self.assertListEqual(G[3], [1, 4])
         self.assertListEqual(G[4], [1, 3])
 
+    def test_count_probable_min_cuts(self):
+        G = [
+            [1, 2],
+            [0, 2],
+            [0, 1]
+        ]
+        self.assertTrue(count_probable_min_cuts(G) == 2)
+
+        G = [
+            [2],
+            [2],
+            [0, 1]
+        ]
+        self.assertTrue(count_probable_min_cuts(G) == 1)
+
+        G = [
+            [1, 2],
+            [0, 3, 4],
+            [0],
+            [1, 4],
+            [1, 3]
+        ]
+        self.assertTrue(count_probable_min_cuts(G) in [1, 2])
+
+        G = [
+            [],
+            []
+        ]
+        self.assertTrue(count_probable_min_cuts(G) == 0)
+
 
 if __name__ == "__main__":
     unittest.main()
